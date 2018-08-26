@@ -17,7 +17,7 @@ for other subjects / knowledge levels will be appreciated and reviewed, but I wo
 
 > Numpy
 
-> Gooey (available via pip, link to github repo)[https://github.com/chriskiehl/Gooey]
+> Gooey [available via pip, link to github repo](https://github.com/chriskiehl/Gooey)
 
 > md2py (available via pip install markdown2py)
 > Note: markdown2py is built in python2, I ported my version to python3 to work with this setup, 
