@@ -9,6 +9,7 @@
 This software is (at least initially) being developed with a focus on producing homeworks corresponding to the 
 syllabuses for the first 3 years of secondary school mathematics in the UK. Pull requests for functionality 
 for other subjects / knowledge levels will be appreciated and reviewed, but I won't actively work on them myself.
+(reasoning for this is that those are the ages my mother teaches, this is primarily for her use)
 
 ## Setup Requirements:
 
