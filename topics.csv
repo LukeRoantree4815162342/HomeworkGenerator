@@ -1,0 +1,7 @@
+topic_name,operation,all_pos,is_decimal,range_low,range_high
+Whole Addition,+,1,0,0,20
+Decimal Addition,+,1,1,0,20
+Negative Number Addition,+,0,0,-20,20
+Whole Subtraction,-,1,0,20,40
+Decimal Subtraction,-,1,1,20,40
+Negative Number Subtraction,-,0,0,-20,20

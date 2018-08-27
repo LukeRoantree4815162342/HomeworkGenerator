@@ -1,41 +1,29 @@
 from md_components import MD
-from topics import *
+from topics import Topic, TopicStore
 import numpy as np
 import argparse as ap
 from gooey import Gooey, GooeyParser
 
-topic_options = ['WholeAddition',
-                 'NegativeNumberAddition',
-                 'DecimalAddition',
-                 'WholeSubtraction',
-                 'NegativeNumberSubtraction',
-                 'DecimalSubtraction']
-topic_options = sorted(topic_options)
-
 @Gooey
 def main():
-    parser = GooeyParser()
 
+    ts = TopicStore()
+    topic_options = list(ts.topic_names.values)
+    parser = GooeyParser()
     parser.add_argument('title', type=str, help='Title: Topic, Homework No., Due Date')
     parser.add_argument('topic', type=str, help='Topic to generate questions for', choices=topic_options, nargs='+', widget='Dropdown')
     parser.add_argument('--number', '-n', type=int, help='number of questions (default is 10)', default=10)
 
     args = parser.parse_args()
-    t = False
+    args.topic = args.topic[0] # bug/quirk of the widget - returns a list always
 
-# Re-do this control structure as a hash
-    if args.topic[0] == 'WholeAddition':
-        t = WholeAddition
-    elif args.topic[0] == 'NegativeNumberAddition':
-        t = NegativeNumberAddition
-    elif args.topic[0] == 'DecimalAddition':
-        t = DecimalAddition
-    elif args.topic[0] == 'WholeSubtraction':
-        t = WholeSubtraction
-    elif args.topic[0] == 'NegativeNumberSubtraction':
-        t = NegativeNumberSubtraction
-    elif args.topic[0] == 'DecimalSubtraction':
-        t = DecimalSubtraction
+    
+    try:
+        t = ts.make_Topic(args.topic)
+    except Exception as e:
+        print(args.topic)
+        print(e)
+        exit
 
     print('Generating questions...')
 
