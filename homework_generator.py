@@ -35,7 +35,7 @@ def main():
 
     print('making homework sheet...')
 
-    with open('Homework_{}.md'.format(args.title), 'w') as f:
+    with open('Homework_{}.md'.format(args.title.replace(' ','_')), 'w') as f:
         f.write(MD.to_title(args.title))
         f.write('\n')
         f.write(MD.to_subtitle(args.topic))
@@ -44,7 +44,7 @@ def main():
 
     print('making solutions sheet...')
     
-    with open('Sols_{}.md'.format(args.title), 'w') as f2:
+    with open('Sols_{}.md'.format(args.title.replace(' ','_')), 'w') as f2:
         f2.write(MD.to_title(args.title))
         f2.write('\n')
         f2.write(MD.to_subtitle(args.topic))

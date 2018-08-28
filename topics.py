@@ -3,12 +3,12 @@ import pandas as pd
 
 class Topic:
     
-    operators = {'+':np.add, 'x':np.multiply, '-':np.subtract, '/':np.divide}
+    #operators = {'+':np.add, 'x':np.multiply, '-':np.subtract, '/':np.divide}
 
     def __init__(self, operation, all_pos=True, is_decimal=False, range_low=0, range_high=20):
         self.is_decimal = is_decimal
         self.all_pos = all_pos
-        self.operation = self.operators[operation]
+        self.operation = TopicStore().operators[operation]
         self.operator = operation
         self.range_low = range_low
         self.range_high = range_high
@@ -28,6 +28,7 @@ class Topic:
 class TopicStore:
 
     def __init__(self):
+        self.operators = {'+':np.add, 'x':np.multiply, '-':np.subtract, '/':np.divide}
         self.df = pd.read_csv('topics.csv')
         self.topic_names = self.df.topic_name
         self.name_index_dict = dict(zip(self.df.topic_name, self.df.index))
