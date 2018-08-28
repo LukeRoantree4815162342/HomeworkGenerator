@@ -19,7 +19,7 @@ for other subjects / knowledge levels will be appreciated and reviewed, but I wo
 
 > Gooey [available via pip, link to github repo](https://github.com/chriskiehl/Gooey)
 
-> md2py (available via pip install markdown2py)
+> md2pdf (available via pip install markdown2pdf)
 > Note: markdown2py is built in python2, I ported my version to python3 to work with this setup, 
 > but I am trying to find an alternative that works as well as md2py. 
 > This is only used at the last step, to convert the .md files to .pdf files
