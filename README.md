@@ -20,8 +20,8 @@ for other subjects / knowledge levels will be appreciated and reviewed, but I wo
 > Gooey [available via pip, link to github repo](https://github.com/chriskiehl/Gooey)
 
 > md2pdf (available via pip install markdown2pdf)
-> Note: markdown2py is built in python2, I ported my version to python3 to work with this setup, 
-> but I am trying to find an alternative that works as well as md2py. 
+> Note: markdown2pdf is built in python2, I ported my version to python3 to work with this setup, 
+> but I am trying to find an alternative that works as well as md2pdf. 
 > This is only used at the last step, to convert the .md files to .pdf files
 
 ---
@@ -32,5 +32,5 @@ for other subjects / knowledge levels will be appreciated and reviewed, but I wo
 
 > In the GUI, enter a title, choose a topic, and enter the number of questions required
 
-> Use 'make_pdfs' script, or md2py directly (usage 'md2py --theme=github <file.md>'), or an alternative, to make .pdfs from the .md files
+> Use 'make_pdfs' script, or md2py directly (usage 'md2pdf --theme=github <file.md>'), or an alternative, to make .pdfs from the .md files
 
