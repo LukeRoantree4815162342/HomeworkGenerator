@@ -32,5 +32,5 @@ for other subjects / knowledge levels will be appreciated and reviewed, but I wo
 
 > In the GUI, enter a title, choose a topic, and enter the number of questions required
 
-> Use 'make_pdfs' script, or md2py directly (usage 'md2pdf --theme=github <file.md>'), or an alternative, to make .pdfs from the .md files
+> Use 'make_pdfs' script, or md2pdf directly (usage 'md2pdf --theme=github <file.md>'), or an alternative, to make .pdfs from the .md files
 
