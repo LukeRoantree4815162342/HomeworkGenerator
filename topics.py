@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+from quadroots import genQuadraticSimple
 
 class Topic:
     
@@ -25,6 +26,20 @@ class Topic:
         answer = self.operation(num1,num2)
         return (question,answer)
 
+class QuadEqns(Topic):
+        # At the moment, does not read any extra args. However, good ones
+        # would be: enforce a = 1 (easier qs), allow irrational roots (harder qs), prevent a=0
+    def __init__(self):
+        
+        # CHRISHAX: Inherits current Topic class for no good reason
+        # But it should probably inherit the new improved one, when it exists.
+        self.is_decimal = False        
+    def make_qa_pair(self):
+        answer = genQuadraticSimple()
+        question = answer[0]
+        answer = "\n".join(answer)
+        return (question,answer)
+
 class TopicStore:
 
     def __init__(self):
@@ -39,6 +54,11 @@ class TopicStore:
 
     def make_Topic(self, name):
         index = self.name_index_dict[name]
+        
+        # CHRISHACK
+        print(name)
+        if name=="Quadratic Equations":
+            return QuadEqns()
         return Topic(self.df.operation[index],
                      self.df.all_pos[index], 
                      self.df.is_decimal[index], 
