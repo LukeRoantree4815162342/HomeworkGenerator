@@ -1,23 +1,25 @@
+### First of all, Thanks! :)
+
+---
+
+
 ## Preferred Workflow:
 
 ---
 
-### First of all, Thanks! :)
-
----
 
 > work to address only one issue at a time.
 (If it happens to fix multiple unintentionally that's fine)
 
 > pull the latest version of master
 
-> make your feature/bugfix/whateer the issue is
+> make your feature/bugfix/whatever the issue is
 
 > pull from master again when done, address any conflicts locally
 
-> *without having committed any changes yet* switch to a new branch with 'git checkout -b 'Issue(<Issue number>)'
+> *without having committed any changes yet* switch to a new branch with 'git checkout -b 'Issue(\<Issue number\>)'
 
-> add and commit your changes, then push to create a new remote branch with your changes; git add <files> ; git commit -m '<message>' ; git push --set-upstream origin 'Issue(<Issue Number>)'
+> add and commit your changes, then push to create a new remote branch with your changes; git add \<files\> ; git commit -m '\<message\>' ; git push --set-upstream origin 'Issue(\<Issue Number\>)'
 
 > on github, open a pull request for your branch - don't merge it yourself.
 
