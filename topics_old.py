@@ -2,37 +2,29 @@ import numpy as np
 import pandas as pd
 
 class Topic:
-    """
-    In subtopics.py we create subclasses of Topic, each with it's own custom layout and method
-    to make qa pairs. 
-    These subclasses are also given a dictionary of alowed operations (function
-    objects that can be used in the questions) and a list of 'toggle variables' (a list of 
-    attributes specific to the subclass that provide slight variations in the question depending
-    on if they're true or false. Examples; is_decimal and all_pos)
-    """
+    
+    #operators = {'+':np.add, 'x':np.multiply, '-':np.subtract, '/':np.divide}
 
-    def __init__(self, allowed_operator_dict, toggle_variables_list):
-        self.allowed_operators = allowed_operator_dict
-        self.toggle_variables = toggle_variables_list
-        self.is_decimal = False
-        self.range_high = 20
-        self.range_low = 0
+    def __init__(self, operation, all_pos=True, is_decimal=False, range_low=0, range_high=20):
+        self.is_decimal = is_decimal
+        self.all_pos = all_pos
+        self.operation = TopicStore().operators[operation]
+        self.operator = operation
+        self.range_low = range_low
+        self.range_high = range_high
 
     def make_qa_pair(self):
-        """
-        This method should be overwritten for each instance
-        """
-        return True
+        num1 = np.random.randint(self.range_low*10**self.is_decimal, self.range_high*10**self.is_decimal)
+        num2 = np.random.randint(self.range_low*10**self.is_decimal, self.range_high*10**self.is_decimal)
+        if self.is_decimal:
+            num1/=10
+            num2/=10
+            question = "{:.1f} {} {:.1f} = ".format(num1,self.operator,num2)
+        else:
+            question = "{} {} {} = ".format(num1,self.operator,num2)
+        answer = self.operation(num1,num2)
+        return (question,answer)
 
-    def make_layout(self):
-        """
-        This method should be overwritten for each instance
-        """
-        return True
-
-"""
-
-Removed while refactoring
 
 class TopicStore:
 
@@ -53,7 +45,7 @@ class TopicStore:
                      self.df.is_decimal[index], 
                      self.df.range_low[index], 
                      self.df.range_high[index])
-"""
+
 
 
 # Leaving these for now in case I need to revert

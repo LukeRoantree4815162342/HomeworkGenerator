@@ -1,5 +1,6 @@
 from md_components import MD
-from topics import Topic, TopicStore
+from topics import Topic
+import subtopics
 import numpy as np
 import argparse as ap
 from gooey import Gooey, GooeyParser
@@ -7,19 +8,18 @@ from gooey import Gooey, GooeyParser
 @Gooey
 def main():
 
-    ts = TopicStore()
-    topic_options = list(ts.topic_names.values)
+    #ts = TopicStore()
+    topic_options = list(subtopics.available_topics.keys())
     parser = GooeyParser()
     parser.add_argument('title', type=str, help='Title: Topic, Homework No., Due Date')
     parser.add_argument('topic', type=str, help='Topic to generate questions for', choices=topic_options, nargs='+', widget='Dropdown')
     parser.add_argument('--number', '-n', type=int, help='number of questions (default is 10)', default=10)
 
     args = parser.parse_args()
-    args.topic = args.topic[0] # bug/quirk of the widget - returns a list always
+    args.topic = args.topic[0]
 
-    
     try:
-        t = ts.make_Topic(args.topic)
+        t = subtopics.available_topics[args.topic]
     except Exception as e:
         print(args.topic)
         print(e)
@@ -29,7 +29,7 @@ def main():
 
     questions, answers = [],[]
     for i in range(args.number):
-        q,a = t.make_qa_pair()
+        q,a = t.make_qa_pair(t)
         questions.append(q+'\n')
         answers.append(a)
 
