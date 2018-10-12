@@ -3,6 +3,7 @@ from topics import Topic, TopicStore
 import numpy as np
 import argparse as ap
 from gooey import Gooey, GooeyParser
+from markdown_to_pdf import convert
 
 @Gooey
 def main():
@@ -53,6 +54,12 @@ def main():
             f2.write("{}".format('\n'.join(['{:.1f}\n'.format(a) for a in answers])))
         else:    
             f2.write("{}".format('\n'.join(['{}\n'.format(a) for a in answers])))
+
+    print('converting markdowns to pdf...')
+
+    convert('Homework_{}.md'.format(args.title.replace(' ','_')), 'Homework_{}.pdf'.format(args.title.replace(' ','_')))
+    convert('Sols_{}.md'.format(args.title.replace(' ','_')), 'Sols_{}.pdf'.format(args.title.replace(' ','_')))
+
 
 if __name__ == '__main__':
     main()
