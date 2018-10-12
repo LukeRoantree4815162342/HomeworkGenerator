@@ -15,22 +15,16 @@ for other subjects / knowledge levels will be appreciated and reviewed, but I wo
 
 > Python 3.x
 
-> Numpy
-
-> Gooey [available via pip, link to github repo](https://github.com/chriskiehl/Gooey)
-
-> md2pdf (available via pip install markdown2pdf)
-> Note: markdown2pdf is built in python2, I ported my version to python3 to work with this setup, 
-> but I am trying to find an alternative that works as well as md2pdf. 
-> This is only used at the last step, to convert the .md files to .pdf files
-
+> Package requirements can be found in requirements.txt
 ---
 
 ## Usage:
 
-> Run 'python homework_generator.py'
+Install the requirements:
+`pip install -r requirements.txt`
 
-> In the GUI, enter a title, choose a topic, and enter the number of questions required
+Run the application:
+`python homework_generator.py`
 
-> Use 'make_pdfs' script, or md2pdf directly (usage 'md2pdf --theme=github <file.md>'), or an alternative, to make .pdfs from the .md files
+In the GUI, enter a title, choose a topic, and enter the number of questions required.
 
